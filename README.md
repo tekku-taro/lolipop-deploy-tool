@@ -105,9 +105,9 @@ python deploy.py -a my-app -c custom_config.json
 
 ```json
 "ftp": {
-  "host": "ftp.lolipop.jp",      // FTPサーバーのホスト名
-  "username": "your-username",    // FTPユーザー名
-  "password": "your-password"     // FTPパスワード
+  "host": "ftp.lolipop.jp",
+  "username": "your-username",
+  "password": "your-password"
 }
 ```
 
@@ -116,10 +116,10 @@ python deploy.py -a my-app -c custom_config.json
 ```json
 "apps": [
   {
-    "name": "my-app",                           // アプリ名（コマンド実行時に指定）
-    "local_path": "C:\\xampp\\htdocs\\my-app", // ローカルのプロジェクトパス
-    "remote_path": "/my-app",                    // リモートのアップロード先パス
-    "always_deploy_files": [ ".env", "dist" ]   // 常にデプロイするファイル/フォルダ
+    "name": "my-app",
+    "local_path": "C:\\xampp\\htdocs\\my-app",
+    "remote_path": "/my-app",
+    "always_deploy_files": [ ".env", "dist" ]
   }
 ]
 ```
@@ -145,19 +145,18 @@ always_deploy_files は、各アプリごとに設定できるオプションで
 
 ```json
 "exclude_patterns": [
-  ".git",           // ディレクトリ名
-  ".gitignore",     // ファイル名
-  "*.pyc",          // 拡張子パターン
-  ".env"            // 環境設定ファイル
-  // その他よくある除外対象
+  ".git", 
+  ".gitignore",
+  "*.pyc", 
+  ".env"
 ]
 ```
 
 ### その他の設定
 
 ```json
-"overwrite": true,    // ファイル上書きを許可
-"timeout": 30         // FTP接続タイムアウト（秒）
+"overwrite": true,
+"timeout": 30
 ```
 
 ## ワークフロー
