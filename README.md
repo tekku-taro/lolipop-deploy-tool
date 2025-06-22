@@ -226,7 +226,9 @@ project/
 ├── deploy_config.json   # 設定ファイル（セットアップ時に作成）
 ├── deploy.log           # デプロイ実行ログ
 ├── deploy_history.json  # デプロイ履歴データ
-└── .gitignore           # Git除外設定（自動更新）
+├── .gitignore           # Git除外設定（自動更新）
+├── pytest.ini           # pytest設定ファイル
+└── tests/               # テストディレクトリ
 ```
 
 ## テストの実行方法
