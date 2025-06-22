@@ -20,8 +20,8 @@ import time
 class LolipopDeployTool:
     def __init__(self, config_file: str = "deploy_config.json"):
         self.config_file = config_file
-        self.config = self.load_config()
         self.setup_logging()
+        self.config = self.load_config()
         self.deploy_log_file = "deploy_history.json"
         
     def setup_logging(self):
@@ -352,9 +352,6 @@ class LolipopDeployTool:
         
         if last_deploy_commit:
             self.logger.info(f"前回デプロイのコミット: {last_deploy_commit}")
-            if last_deploy_commit == current_commit and not all:
-                self.logger.info("変更がないため、デプロイをスキップします")
-                return True
         
         # アップロード対象のGit管理ファイルを取得
         # 'all' フラグが指定された場合、または初回デプロイの場合は全ファイルを取得

@@ -156,8 +156,8 @@ class DeploySetup:
         """FTP接続テスト"""
         self.logger.info("FTP接続をテストしています...")
         
+        ftp = ftplib.FTP()
         try:
-            ftp = ftplib.FTP()
             ftp.connect(
                 config['ftp']['host'], 
                 timeout=config.get('timeout', 30)
@@ -173,12 +173,19 @@ class DeploySetup:
             self.logger.info("FTP接続テスト成功")
             self.logger.info(f"サーバー応答: {welcome_msg}")
             
-            ftp.quit()
             return True
             
         except Exception as e:
             self.logger.error(f"FTP接続テスト失敗: {e}")
             return False
+        
+        finally:
+            try:
+                ftp.quit()
+            except Exception:
+                # 接続が確立されていない場合など、quitが失敗しても無視する
+                pass
+
     
     def validate_local_paths(self, config: Dict) -> bool:
         """ローカルパスの存在確認"""
