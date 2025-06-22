@@ -1,6 +1,6 @@
-# ロリポップサーバー向け自動デプロイツール
+# ロリポップサーバー向けデプロイツール
 
-Git の差分を基に FTP でファイルをアップロードする自動デプロイツールです。
+Git の差分を基に FTP でファイルをアップロードするデプロイツールです。
 
 ## 機能
 
@@ -18,7 +18,8 @@ Git の差分を基に FTP でファイルをアップロードする自動デ�
 ### 1. 必要なライブラリのインストール
 
 ```bash
-# 標準ライブラリのみを使用しているため、追加インストールは不要です
+# テストを行う場合は pytest と pytest-mock をインストールしてください
+pip install pytest pytest-mock
 ```
 
 ### 2. 初期セットアップ
@@ -227,3 +228,24 @@ project/
 ├── deploy_history.json  # デプロイ履歴データ
 └── .gitignore           # Git除外設定（自動更新）
 ```
+
+## テストの実行方法
+
+このプロジェクトでは [`pytest`](https://docs.pytest.org/) を使用してユニットテストを記述しています。テストコードは `./tests` ディレクトリに配置されています。
+
+### テストの実行
+
+```bash
+# 必要なライブラリをインストール
+pip install pytest pytest-mock
+
+# すべてのテストを実行
+pytest
+```
+
+
+## ライセンス (License)
+
+**ロリポップサーバー向けデプロイツール** は [MIT license](https://opensource.org/licenses/MIT) のもとでオープンソースソフトウェアとして提供されています。
+
+**Lolipop Deploy Tool** is an open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
